@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evolution of Cars</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.15.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.15.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.15.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.15.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.15.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.15.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.15.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.15.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.15.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.15.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0ö,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+
+    <!--Imports a model-viewer JavaScript code -->
+    <!--It helps to handle how the 3D Object would be displayed -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    <style>
+      .box{display:flex;}
+      model-viewer{width:800px; height: 600px; margin:0, auto;}
+    </style>
+
+  </head>
+  <body style="background-color:#ffffff;">
+    <center><div style="color: rgb(35,82,186); font-size:100px;font-family: 'Courier New', Courier, monospace;">Evolucioni i Makinave</div></center>
+    <div class="container">
+      <div class="row">
+        <!--div + background-image-->
+        <h2>Makina e Parë</h2>
+        <div class="ukiyo bg" id="test"></div>
+      </div>x
+    </div>
+
+
+    <script src="./ukiyo.min.js"></script>
+    <script>
+      const parallax = new Ukiyo(".ukiyo");
+      const resetButton = document.querySelector('.button--reset');
+      const destroyButton = document.querySelector('.button--destroy');
+  
+      resetButton.addEventListener('click', event => {
+        parallax.reset()
+      });
+      destroyButton.addEventListener('click', event => {
+        parallax.destroy()
+      });
+      
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+    <div style="width:1620px; margin:0 auto;">
+      <p> <h1>      
+        Motori i parë i palëvizshëm i benzinës i zhvilluar nga Carl Benz ishte një njësi me një cilindër me dy goditje, e cila funksionoi për herë të parë në natën e Vitit të Ri 1879. Benz pati aq shumë sukses komercial me këtë motor, saqë ai ishte në gjendje t'i kushtonte më shumë kohë ëndrrës së tij të krijimit të një makine të lehtë të mundësuar nga një motor benzine, në të cilën shasia dhe motori formonin një njësi të vetme.
+      </h1>
+      </p>
+    </div>
+  </script>
+  <div>
+    <div style="width:1050px;float:right;">
+    <p><h1> 
+      Porsche 911  është një makinë sportive me dy dyer 2+2 me performancë të lartë me motor të pasmë e prezantuar në shtator 1964 nga Porsche AG e Shtutgartit, Gjermani. Ka një motor me gjashtë të sheshtë të montuar në pjesën e pasme dhe fillimisht një pezullim të shiritit rrotullues. Makina është përmirësuar vazhdimisht gjatë viteve, por koncepti bazë ka mbetur i pandryshuar. Motorët u ftohën me ajër deri në prezantimin e serisë 996 në 1998.
+
+911 është garuar gjerësisht nga ekipe private dhe fabrike, në një sërë klasash. Është ndër makinat më të suksesshme të konkurrencës. Në mesin e viteve 1970, 911 Carrera RSR me aspirim natyral fitoi garat e kampionatit botëror duke përfshirë Targa Florio dhe 24 Hours of Daytona. 935 turbo nga 911 fitoi gjithashtu 24 Orët e Le Mans në 1979. Porsche fitoi Kampionatin Botëror për Maks në 1976, 1977, 1978 dhe 1979 me modelet e derivuara nga 911.
+    </h1></p>
+  </div>
+    <div class="box" style="width:800px; margin:0 left; border: 3px solid rgba(0, 0, 0, 0);">
+      <div>
+        <model-viewer src="porsche.glb" camera-controls auto-rotate disable-zoom></model-viewer>
+      </div>
+      </div>
+    </div>
+    <div> 
+           <div class="box" style="width:800px; float:right;">
+      <div>
+        <model-viewer src="ac_-_audi_r8_lms_2016.glb" camera-controls auto-rotate disable-zoom></model-viewer>
+      </div>
+    </div>
+    </div>
+      <div style="width:1000px; margin:0 left;">
+        <p> <h1>      
+          Audi R8 është një makinë sportive me motor të mesëm, me 2 vende, e cila përdor sistemin e përhershëm të lëvizjes me të gjitha rrotat e markës së Audi-t quattro. Ajo u prezantua nga prodhuesi gjerman i makinave Audi AG në 2006.
+
+          Makina është projektuar, zhvilluar dhe prodhuar ekskluzivisht nga kompania degë private e Audi AG që prodhon pjesë të automobilave me performancë të lartë, Audi Sport GmbH (dikur quattro GmbH) dhe bazohet në Lamborghini Gallardo dhe aktualisht platformën Huracán. Ndërtimi themelor i R8 është i bazuar në Audi Space Frame, dhe përdor një monokok alumini i cili është ndërtuar duke përdorur parimet e kornizës hapësinore. Makina është ndërtuar nga Audi Sport GmbH në një fabrikë të rinovuar rishtazi në 'vendin e aluminit' të Audi në Neckarsulm në Gjermani.
+          
+          Është gjithashtu makina e parë e prodhimit me fenerët LED të plotë. </h1>
+        </p>
+      </div>
+      <center><div style="color: rgb(35,82,186); font-size:50px;font-family: 'Courier New', Courier, monospace;">Punuar nga: Nasion Golloshi dhe Anxhela Tafa</div></center>
+      <a href="rrethnesh.html" style="color: rgb(35,82,186); font-size:30px;font-family: 'Courier New', Courier, monospace; float: right;">Rreth Nesh</a>
+  </body>
+</html>
